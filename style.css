@@ -28,6 +28,8 @@ body{
   font-family: "DM sans";
   font-size: 1.6rem;
   text-align: center;
+
+  overflow: overlay;
 }
 
 .wrapper{
@@ -169,14 +171,24 @@ nav.scroll svg:nth-child(1) path{
   fill: white;
 }
 
-nav.scroll svg:nth-child(2) path{
+nav.scroll button path{
   stroke: white;
+}
+
+nav button{
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* ======MENU-EXPANDED====== */
 
 body.menu__expanded{
   overflow: hidden;
+}
+
+body.menu__expanded > :not(nav){
+  display: none;
 }
 
 .menu,
@@ -200,6 +212,8 @@ body.menu__expanded .menu{
 
   width: 100vw;
   height: 100vh;
+
+  padding-top: var(--nav-height);
 }
 
 body.menu__expanded nav{
@@ -246,4 +260,18 @@ text-decoration: none;
   align-items: center;
   justify-content: center;
   gap: 3.2rem;
+}
+
+body.menu__expanded .logo,
+body.menu__expanded button{
+  position: relative;
+  z-index: 100;
+}
+
+body.menu__expanded .logo path{
+  fill: white;
+}
+
+body.menu__expanded button path{
+  stroke: white;
 }
